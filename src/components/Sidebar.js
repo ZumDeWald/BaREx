@@ -1,14 +1,42 @@
+import { useState } from "react";
 import logo from "../logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Sidebar = () => {
+const Sidebar = ({ setView }) => {
+  const [menuOpen, setMenuOpen] = useState(true);
+
+  const handleMenuToggle = () => {
+    menuOpen ? setMenuOpen(false) : setMenuOpen(true);
+  };
+
+  const handleViewChange = (newView) => {
+    handleMenuToggle();
+    setView(newView);
+  };
+
   return (
-    <aside id="sidebar" className="menu-hide">
-      <FontAwesomeIcon icon="chevron-left" className="menu-chev" />
+    <aside id="sidebar" className={menuOpen ? "menu-show" : ""}>
+      <FontAwesomeIcon
+        icon="chevron-left"
+        className={menuOpen ? "menu-chev" : "menu-chev rotate180"}
+        onClick={handleMenuToggle}
+      />
       <img src={logo} className="App-logo" alt="logo" />
       <ul>
-        <li>Home</li>
-        <li>Classy</li>
+        <li
+          onClick={() => {
+            handleViewChange("HOME");
+          }}
+        >
+          Home
+        </li>
+        <li
+          onClick={() => {
+            handleViewChange("CLASSY");
+          }}
+        >
+          Classy
+        </li>
         <li>Route</li>
       </ul>
     </aside>

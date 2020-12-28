@@ -1,7 +1,8 @@
 #app {
   position: relative;
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: [c1] 50px [c2] 1fr [c3];
+  grid-template-rows: [r1] 100px [r2] 1fr [r3];
   grid-gap: 0;
   min-height: 100vmin;
   background-color: #222;
@@ -13,6 +14,8 @@
 }
 
 .app-header {
+  grid-column: c2 / c3;
+  grid-row: r1 / r2;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,17 +32,24 @@
 }
 
 #sidebar {
+  grid-column: c1 / c2;
+  grid-row: r1 / r3;
   position: relative;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 250px;
   min-height: 100vh;
   background-color: #eee;
+  box-shadow: 1px 0 12px 3px #333;
   transform: translate3d(-210px, 0, 0);
-  transition-duration: 350ms;
+  transition-duration: 400ms;
   transition-timing-function: ease;
+}
+
+#sidebar.menu-show {
+  transform: translate3d(0, 0, 0);
 }
 
 #sidebar > ul {
@@ -54,15 +64,19 @@
   cursor: pointer;
 }
 
+main {
+  grid-column: c2 / c3;
+  grid-row: r2 / r3;
+  padding: 30px 0 0 15px;
+  margin: 0;
+}
+
 .menu-chev {
   position: absolute;
   top: 10px;
   right: 15px;
-  transition-duration: 200ms;
-}
-
-.menu-show {
-  transform: translate3d(0, 0, 0);
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
 }
 
 .rotate180 {
