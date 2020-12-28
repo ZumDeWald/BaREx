@@ -53,8 +53,6 @@
 }
 
 #sidebar > ul {
-  list-style: none;
-  padding: 0;
   margin: 25px auto;
 }
 
@@ -64,11 +62,25 @@
   cursor: pointer;
 }
 
+.home-items > li {
+  width: max-content;
+  margin: 10px 0;
+}
+
+.home-items > li > span {
+  padding-left: 5px;
+}
+
 main {
   grid-column: c2 / c3;
   grid-row: r2 / r3;
   padding: 30px 0 0 15px;
   margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 .menu-chev {
@@ -85,4 +97,15 @@ main {
 
 .blue {
   color: #61dafb;
+}
+
+.active {
+  color: #61dafb;
+  font-weight: bold;
+  text-decoration: underline;
+  pointer-events: none;
+}
+
+.pointer {
+  cursor: pointer;
 }
