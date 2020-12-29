@@ -2,6 +2,8 @@ import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import HomeView from "./components/HomeView";
 import Classy from "./components/Classy";
+import RouteView from "./components/RouteView";
+import { Switch, Route } from "react-router-dom";
 
 import itemData from "./components/items";
 import "./App.css";
@@ -21,6 +23,13 @@ function App() {
       </header>
       {view === "HOME" && <HomeView items={items} setItems={setItems} />}
       {view === "CLASSY" && <Classy />}
+      <Switch>
+        <Route
+          exact
+          path="/route"
+          render={() => <RouteView setView={setView} />}
+        />
+      </Switch>
     </div>
   );
 }

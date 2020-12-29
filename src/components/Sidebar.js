@@ -1,17 +1,20 @@
 import { useState } from "react";
 import logo from "../logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = ({ view, setView }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const history = useHistory();
 
   const handleMenuToggle = () => {
     menuOpen ? setMenuOpen(false) : setMenuOpen(true);
   };
 
-  const handleViewChange = (newView) => {
+  const handleViewChange = (newView, path) => {
     handleMenuToggle();
     setView(newView);
+    history.push(path);
   };
 
   return (
@@ -28,7 +31,7 @@ const Sidebar = ({ view, setView }) => {
         <li
           className={view === "HOME" ? "active" : ""}
           onClick={() => {
-            handleViewChange("HOME");
+            handleViewChange("HOME", "/");
           }}
         >
           Home
@@ -36,12 +39,19 @@ const Sidebar = ({ view, setView }) => {
         <li
           className={view === "CLASSY" ? "active" : ""}
           onClick={() => {
-            handleViewChange("CLASSY");
+            handleViewChange("CLASSY", "/");
           }}
         >
           Classy
         </li>
-        <li>Route</li>
+        <li
+          className={view === "ROUTE" ? "active" : ""}
+          onClick={() => {
+            handleViewChange("ROUTE", "/route");
+          }}
+        >
+          Route
+        </li>
       </ul>
     </aside>
   );
