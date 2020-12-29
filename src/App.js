@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import HomeView from "./components/HomeView";
+import Classy from "./components/Classy";
+import RouteView from "./components/RouteView";
+import { Switch, Route } from "react-router-dom";
+
+import itemData from "./components/items";
+import "./App.css";
 
 function App() {
+  const [view, setView] = useState("HOME");
+  const [items, setItems] = useState(itemData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div id="app">
+      <Sidebar view={view} setView={setView} />
+      <header className="app-header">
+        <div>
+          <span className="blue">Ba</span>sic <span className="blue">R</span>
+          eact <span className="blue">Ex</span>ample - BaREx
+        </div>
       </header>
+      {view === "HOME" && <HomeView items={items} setItems={setItems} />}
+      {view === "CLASSY" && <Classy />}
+      <Switch>
+        <Route
+          exact
+          path="/route"
+          render={() => <RouteView setView={setView} />}
+        />
+      </Switch>
     </div>
   );
 }
