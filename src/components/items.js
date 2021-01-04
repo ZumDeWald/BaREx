@@ -29,6 +29,10 @@ const itemData = [
   },
   {
     done: false,
+    info: "Compare / contrast with React Native",
+  },
+  {
+    done: false,
     info: "Checkout Gatsby (Framework built on React)",
   },
 ];
