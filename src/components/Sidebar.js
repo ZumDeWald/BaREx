@@ -8,7 +8,7 @@ const Sidebar = ({ view, setView }) => {
   const history = useHistory();
 
   const handleMenuToggle = () => {
-    menuOpen ? setMenuOpen(false) : setMenuOpen(true);
+    setMenuOpen(!menuOpen);
   };
 
   const handleViewChange = (newView, path) => {

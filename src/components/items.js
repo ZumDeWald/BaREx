@@ -1,6 +1,10 @@
 const itemData = [
   {
-    done: true,
+    done: false,
+    info: "Is React a Framework?",
+  },
+  {
+    done: false,
     info: "Review folder structure",
   },
   {
@@ -17,7 +21,15 @@ const itemData = [
   },
   {
     done: false,
+    info: "Examine React dev tools and watch state changes",
+  },
+  {
+    done: false,
     info: "Run build and review output files",
+  },
+  {
+    done: false,
+    info: "Checkout Gatsby (Framework built on React)",
   },
 ];
 
