@@ -1,7 +1,7 @@
 const itemData = [
   {
     done: false,
-    info: "Is React a Framework?",
+    info: "React is a JavaScript UI library - not a framework",
   },
   {
     done: false,
@@ -33,7 +33,11 @@ const itemData = [
   },
   {
     done: false,
-    info: "Checkout Gatsby (Framework built on React)",
+    info: "Checkout Gatsby / NextJS (Frameworks built on React)",
+  },
+  {
+    done: false,
+    info: "Discuss React Server Components",
   },
 ];
 

@@ -23,6 +23,7 @@ const RouteView = ({ setView }) => {
   useEffect(() => {
     setView("ROUTE");
     return () => {
+      alert("Leaving the route");
       setView("HOME");
     };
   }, [setView]);

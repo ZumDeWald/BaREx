@@ -4,8 +4,8 @@ import HomeView from "./components/HomeView";
 import Classy from "./components/Classy";
 import RouteView from "./components/RouteView";
 import { Switch, Route } from "react-router-dom";
+import itemData from "./assets/items";
 
-import itemData from "./components/items";
 import "./App.css";
 
 function App() {
